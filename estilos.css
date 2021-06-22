@@ -1,261 +1,270 @@
+/* configurações gerais da página */
 body {
-  background-image: url(imgs/fundo-assombrado.jpg);
-  background-size: cover;
-  color: white;
   margin: 0;
-  font-family: monospace;
+  background: #112 url(images/stars2.jpg) repeat;
+  background-size: 75%;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  font-size: 18px;
 }
 
-h1, h2 {
-  margin: 0;
+p {
+  text-align: justify;
 }
 
-h1 {
-  font-family: "Special Elite", cursive;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.25em;
+  font-family: "Space Mono", monospace;
 }
 
-h2 {
-  font-family: "Aldrich", sans-serif;
+/* fundo de estrelas esmaecendo */
+body::before,
+body::after {
+  content: " ";
+  display:block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: transparent url(images/twinkling.png) repeat;
+  animation: move-twink-back 500s linear infinite;
 }
 
-h1 + h2 {
-  font-size: 100%;
-  margin-top: 0.5em;
-  color: silver;
+body::after {
+  animation-direction: reverse;
 }
 
-a:link {
-  color: orange;
+@keyframes move-twink-back {
+  from {  background-position: 0 0; }
+  to   {  background-position: -10000px 5000px; }
 }
 
-a:visited {
-  color: orange;
+/* muda a cor da seleção para um azul bacana */
+*::selection {
+  background-color: #6dacff;
 }
 
-a:hover {
-  color: white;
-}
-
-a:active {
-  color: red;
-}
-
-
-/* --- Cabeçalho --- */
-#cabecalho {
-  background-color: rgba(0, 0, 0, .95);
-  box-shadow: 2px 10px 10px rgba(0,0,0, .25);
-  padding-top: 1em;
-  text-align: center;
-}
-
-#cabecalho ul {
-  background-color: rgba(0, 204, 147, 0.53);
-}
-
-#cabecalho a {
-  text-decoration: none;
-  text-shadow: 1px 1px black;
-}
-
-#menu-de-navegacao ul {
-  margin-bottom: 0;
-}
-
-
-
-/* --- Conteúdo principal da página --- */
-#conteudo-principal {
-  padding-left: 2.5%;
-  transition: opacity 1s linear;
-  padding-bottom: 3em;
-}
-
-
-
-
-/* --- Principal >> Postagens principais --- */
-#posts-principais {
-  padding-top: 1.5em;
-}
-
-#posts-principais h1 {
-  margin-bottom: 1em;
-}
-
-#posts-principais .post {
-  width: 40%;
-  max-width: 400px;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  display: inline-block;
-}
-
-#posts-principais .post .titulo {
-  text-shadow: 1px 1px black;
-}
-
-#posts-principais .post img {
-  width: 100%;
-  max-width: 400px;
-  box-sizing: border-box;
-  border: 6px solid white;
-  margin-bottom: .5em;
-}
-
-
-
-
-/* --- Principal >> Últimas postagens --- */
-#ultimas-postagens {
-  margin-top: 3em;
-  margin-bottom: 1em;
-}
-
-#ultimas-postagens .post {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-#ultimas-postagens .post .data-horario {
-  background-color: white;
-  color: #333;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 3px;
-  display: inline-block;
-  margin-right: 1em;
-}
-
-#ultimas-postagens .titulo {
-  font-size: 16px;
-  line-height: 22px;
-  display: inline-block;
-}
-
-
-
-
-/* --- Principal >> Nuvem de tags --- */
-#tags {
-  float: right;
-  width: 300px;
-  padding: 15px;
-  background-color: black;
-  background-image: url(imgs/mula.webp);
-  background-repeat: no-repeat;
-  background-size: 300px;
-  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
-#tags h1 {
-  margin-bottom: 1em;
-  text-shadow: 2px 2px #000;
-}
-
-.tag-1,
-.tag-2,
-.tag-3 {
-  display: inline-block;
-  border-radius: 2px;
-  padding: 2px 4px;
-  margin: 2px;
-  background-color: orange;
-  color: white;
-  text-shadow: 1px 1px black;
-}
-
-.tag-2 {
-  font-size: 125%;
-}
-
-.tag-3 {
-  font-size: 150%;
-}
-
-
-
-
-
-/* --- Rodapé --- */
-#rodape {
-  background-color: rgba(0, 0, 0, .7);
-  padding: 1em;
+/* layout do cabeçalho da página */
+header {
+  background-color: rgba(255, 255, 255, .1);
+  padding: 0 1em;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  animation: chegando-de-cima 700ms cubic-bezier(0.18, 0.62, 0.22, 1) 0ms 1 forwards;
 }
 
-#rodape .logo-rodape {
-  margin-right: 2em;
+header * {
+  transform: translate3d(0,-100%, 0);
+  animation: chegando-de-cima 700ms cubic-bezier(0.18, 0.62, 0.22, 1) 200ms 1 forwards;
 }
 
+header :nth-child(2n) {
+  animation-delay: 200ms;
+}
 
+header :nth-child(2n+1) {
+  animation-delay: 400ms;
+}
 
+header ul :nth-child(3n+1) {
+  animation-delay: 600ms;
+}
 
+header ul :nth-child(3n+2) {
+  animation-delay: 800ms;
+}
 
-/* --- Vídeo --- */
-.backdrop {
-  position: fixed;
+header ul :nth-child(3n) {
+  animation-delay: 1000ms;
+}
+
+@keyframes chegando-de-cima {
+  from  {
+    opacity: 0.2;
+    transform: translate3d(0, -100%, 0);
+  }
+  to  {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* estilizando o menu superior */
+#logo {
+  float: left;
+  height: 1.25em;
+  margin-right: 0.5em;
+}
+
+#menu-principal ul {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid rgba(0, 0, 0, .2);
+  border-right: 1px solid rgba(255, 255, 255, .1);
+}
+
+#menu-principal li {
+  display: inline-block;
+  list-style-type: none;
+  list-style-image: none;
+  margin: 0;
+  border-left: 1px solid rgba(255, 255, 255, .1);
+  border-right: 1px solid rgba(0, 0, 0, .2);
+}
+
+#menu-principal a {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 2em 1.5em 0.75em;
+  color: currentColor;
+  text-decoration: none;
+}
+
+#menu-principal a::before {
+  content: " ";
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: -1;
-  pointer-events: none;
-  transition: opacity 1s linear;
-  opacity: 1;
-  visibility: visible;
+  opacity: 0.05;
+  transition: opacity 200ms ease;
 }
 
-.desaparecido {
-  opacity: 0 !important;
-  visibility: hidden !important;
+#menu-principal a:hover::before {
+  opacity: 0.25;
 }
 
-.backdrop video {
-  width: 100%;
+#menu-principal li:nth-child(1) a::before {
+  background-color: #128fff;
 }
 
-.backdrop.desaparecido + #unmute {
+#menu-principal li:nth-child(2) a::before {
+  background-color: #d012ff;
+}
+
+#menu-principal li:nth-child(3) a::before {
+  background-color: #12ff59;
+}
+
+/* layout do conteúdo principal da página */
+main {
+  padding: 1em;
+}
+
+.aba-conteudo {
   display: none;
 }
 
-#unmute {
-  position: absolute;
-  left: calc(50% - 0.75em);
-  top: calc(50% - 0.75em);
-  border-radius: 50%;
-  border: 2px solid currentColor;
-  background-color: rgba(255, 255, 255, .15);
-  color: black;
-  font-size: 2.5rem;
-  width: 1.5em;
-  height: 1.5em;
-  line-height: 1em;
-  padding: 0;
+.aba-conteudo.ativa {
+  display: block;
+}
+
+/* estilos do exercício da gravitação */
+#gravitacao .colunas {
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+}
+
+#gravitacao .coluna {
+  flex: 1;
+}
+
+#gravitacao input {
+  width: 6em;
+}
+
+.controles {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+/* estilos do exercício dos aliens */
+#aliens p {
+  white-space: nowrap;
+  height: 1.2em;
+  font-size: 1em;
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#aliens p.expandido {
+  white-space: normal;
+  height: auto;
+}
+
+.botao-expandir-retrair {
   box-sizing: border-box;
-  text-align: center;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+  height: 1em;
+  width: 1em;
+  padding: 0;
+  margin: 0 .5em 0 0;
+  font-size: inherit;
+  line-height: 1em;
+  border-width: 1px;
 }
 
-#unmute:hover {
+/* estilos do exercício philae */
+#galeria {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+#slide {
+  aspect-ratio: auto 739 / 415;
+  border: 1px solid gray;
+  display: block;
+  max-width: 100%;
+}
+
+.navegar {
+  width: 150px;
+  padding: 0.5em 0.5em;
+  margin-top: 2px;
+  font-size: 1em;
+  border: 2px solid currentColor;
+  background-color: transparent;
+  color: #999;
+  transition: all 100ms ease;
+}
+
+.navegar:hover {
   color: white;
+  cursor: pointer;
 }
 
-#unmute:active {
-  color: black;
-  transform: translate(1px, 1px);
+.navegar:active {
+  text-indent: 2px;
 }
 
-#unmute:focus {
-  outline: none;
-  border-color: transparent;
-  box-shadow: 0 0 0 4px yellow;
+#anterior {
+  float: left;
+  border-radius: 0 0 0 10px;
 }
 
-#unmute:active:focus {
-  color: black;
-  border-color: currentColor;
-  box-shadow: none;
+#proximo {
+  float: right;
+  border-radius: 0 0 10px 0;
+}
+
+#anterior:hover {
+  transform: translateX(-5px);
+}
+
+#proximo:hover {
+  transform: translateX(5px);
 }

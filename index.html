@@ -1,141 +1,173 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>Blog Assombrado</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Aldrich">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Exploração Espacial</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Space+Mono&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
-    <link rel="shortcut icon" href="imgs/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
   </head>
   <body>
-    <div id="cabecalho">
-      <h1>Blog Assombrado</h1>
-      <h2>Notícias e reportagens sobre o desconhecido</h2>
-      <div id="menu-de-navegacao">
+    <header>
+      <h1>
+        <img src="images/alien-icon.png" id="logo" alt="Ícone com o rosto de um alien">
+        Exploração Espacial
+      </h1>
+      <nav id="menu-principal">
         <ul>
-          <li><a href="index.html">Inicial</a></li>
-          <li><a href="#ovnis.html">UFOlogia</a></li>
-          <li><a href="#fantasmas.html">Fantasmas</a></li>
-          <li><a href="#lendas.html">Lendas</a></li>
-          <li><a href="#lugares-misteriosos.html">Lugares Misteriosos</a></li>
-          <li><a href="#especiais.html">Especiais</a></li>
+          <li><a href="#gravitacao">Gravitação</a></li>
+          <li><a href="#osiris-rex">Sonda Osiris-Rex</a></li>
+          <li><a href="#aliens">Sobre Aliens</a></li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Exercício 1: calcular a gravitação universal -->
+      <article id="gravitacao" class="aba-conteudo ativa">
+        <h1>Lei da Gravitação</h1>
+        <div class="colunas">
+          <div class="coluna">
+            <p>
+              A gravitação universal é uma força fundamental de atração que age entre todos os objetos, de acordo
+              com a quantidade de matéria de que são constituídos (massa).
+            </p>
+            <p>
+              A fórmula de cálculo da força de atração entre dois corpos é $$F_{grav}=\frac{GM_1M_2}{d^2},$$
+              onde \(F_{grav}\) é a força gravitacional, \(G\) é a constance de gravitação universal, \(M_1\)
+              e \(M_2\) são as massas dos dois corpos e \(d\) é a distância entre o centro dos objetos.
+            </p>
+          </div>
+          <div class="coluna">
+            <p>Para calcular a força entre dois corpos, use os controles a seguir:</p>
+            <div class="controles">
+              <label>
+                \(G\): <input type="number" id="constante" value="6.67e-11" disabled>
+              </label>
+              <label>
+                \(M_1\): <input type="number" id="massa1">
+              </label>
+              <label>
+                \(M_2\): <input type="number" id="massa2">
+              </label>
+              <label>
+                \(d\): <input type="number" id="distancia">
+              </label>
+            </div>
+            <div class="controles">
+              <label>
+                Resultado: <input type="number" id="resultado" disabled>
+              </label>
+              <button id="calcular">Calcular \(F_{grav}\)</button>
+            </div>
+          </div>
+        </div>
+      </article>
 
-    <!-- OBS: não remova a class="desaparecido" porque ela está sendo usada pra
-         esconder este elemento até o vídeo acabar (tem uma regra CSS para
-         ocultar quem tem .desaparecido)-->
-    <div id="conteudo-principal" class="desaparecido">
-      <!-- opa, <section> já é um elemento semântico. Dica: podemos
-           dividir a página em 3 seções, e esta é uma delas -->
-      <div id="tags">
-        <h1>Nuvem de <em>tags</em></h1>
-        <span class="tag-3">UFO</span>
-        <span class="tag-1">OVNI</span>
-        <span class="tag-2">Avistamentos</span>
-        <span class="tag-1">Contato de primeiro grau</span>
-        <span class="tag-2">Assombrações</span>
-        <span class="tag-3">Local mal-assombrado</span>
-        <span class="tag-1">Saci</span>
-      </div>
-
-      <div id="posts-principais">
-        <h1>Principais Postagens</h1>
-        <div class="post">
-          <img src="imgs/arvores.jpg" alt="Uma floresta com várias árvores com caules tortos com espaço de aproximadamente 2m entre cada">
-          <h2 class="titulo">
-            Conheça a Enigmática "Crooked Forest": Centenas de Árvores
-            em uma Floresta Foram Entortadas por "Forças Misteriosas", na Polônia?
-          </h2>
-          <span class="data-horario" datetime="2021-05-09">09 de maio de 2021</span>
-        </div>
-        <div class="post">
-          <img src="imgs/ursa.jpg" alt="Duas fotos de ursos polares em um ambiente que imita cavernas glaciais e outra foto aérea de um parque temático com diversos ambientes aquáticos">
-          <h2 class="titulo">
-            O Mistério de Szenja: Uma Ursa Polar Morreu de "Coração Partido"
-            ao ser Separada de Sua Companheira no SeaWorld, nos Estados Unidos?
-          </h2>
-          <span class="data-horario" datetime="2021-05-09">07 de maio de 2021</span>
-        </div>
-      </div>
-
-      <div id="ultimas-postagens">
-        <h1>Últimas Postagens</h1>
-        <!-- class="palavra1 palavra2" quer dizer que o elemento possui DUAS
-             CLASSES. Portanto, uma regra CSS .palavra1 seleciona ele, bem
-             como uma .palavra2 -->
-        <div class="post novidade">
-          <span class="data-horario" datetime="2021-05-09">09/05/2021</span>
-          <h2 class="titulo">
-            O Projeto Manhatan e a Construção das
-            Primeiras Bombas Atômicas
-          </h2>
-        </div>
-        <div class="post novidade">
-          <span class="data-horario" datetime="2021-05-09">09/05/2021</span>
-          <h2 class="titulo">
-            A Misteriosa "Vulture Stone": Um "Pilar de
-            Pedra" Provocou um Verdadeiro Caos na
-            Terra Há 13 Mil Anos?
-          </h2>
-        </div>
-        <div class="post">
-          <span class="data-horario" datetime="2021-05-08">08/05/2021</span>
-          <h2 class="titulo">
-            O "Fantasma de um Homem" Subindo uma Escadaria
-            Apareceu em uma Mansão "Mal-Assombrada" do Século XVII, na
-            Inglaterra?
-          </h2>
-        </div>
-        <div class="post">
-          <span class="data-horario" datetime="2021-04-16">16/04/2021</span>
-          <h2 class="titulo">
-            Sereias: Lenda, Fotos, Vídeos, Relatos e
-            Análises. Será que elas existem?
-          </h2>
-        </div>
-      </div>
-    </div>
-
-    <div id="rodape">
-      <img class="logo-rodape" src="imgs/logo-assombrado.png" alt="Logo do canal do Youtube Assombrado composto por uma letra A dentro de um círculo e os dizeres 'O desconhecido levado a sério'">
-      <div>
-        <p class="texto-rodape">
-          © O nome "Assombrado", a logomarca, a vinheta e as imagens são todos
-          propriedade do <a href="https://www.youtube.com/user/AssombradoBlog">
-          Canal Assombrado</a> do Youtube e do blog
-          <a href="http://assombrado.com.br" target="_blank">AssombradO.com.br</a>
+      <!-- Exercício 2: fazer o código JavaScript da galeria -->
+      <article id="osiris-rex" class="aba-conteudo">
+        <h1>Sonda Osiris-Rex</h1>
+        <p>
+          A sonda Osiris-Rex, lançada pela Nasa em 2016, viajou mais
+          de 320 mil quilômetros até chegar aos arredores do asteroide
+          Bennu em dezembro 2018. Desde então, sua missão foi mapear
+          toda a extensão do grande pedregulho – 500 metros (à título
+          de comparação, a Torre Eiffel mede 300 metros) – e, com
+          as imagens, bolar um mapa detalhado de sua superfície.
         </p>
-        <div id="inscreva-se">
+        <div id="galeria">
+          <img src="http://fegemo.github.io/cefet-web/images/osiris/modelo-artistico-da-sonda.webp" id="slide">
+          <button id="anterior" class="navegar">Anterior</button>
+          <button id="proximo" class="navegar">Próximo</button>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <!-- não remova a class="backdrop" porque ela está sendo usada para
-         estilizar este elemento no CSS e usada também no JavaScript para ocultar
-         o vídeo depois que ele acaba -->
-    <div class="backdrop">
-      <video src="videos/vinheta.mp4" autoplay muted></video>
-    </div>
-    <button id="unmute">🔉</button>
+      <!-- Exercício 3: fazer o código JavaScript da retração/expansão dos parágrafos -->
+      <article id="aliens" class="aba-conteudo">
+        <h1>Sobre Aliens</h1>
+        <h2>De onde eles vêm</h2>
+        <p>
+          <button class="botao-expandir-retrair" type="button">+</button>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in
+          dignissim augue. Nunc a erat ac nisl imperdiet dapibus sit amet
+          in ipsum. Suspendisse scelerisque in dui in placerat. Praesent
+          ornare est dolor, at pharetra mauris finibus in. Aenean vulputate,
+          massa ut molestie tincidunt, eros mi pulvinar sem, lobortis
+          efficitur dolor turpis eget velit. Donec non metus ante. Nam
+          quis quam quis magna laoreet ultricies. Duis non ex maximus,
+          congue augue nec, lobortis magna. Sed et tristique ex, non iaculis
+          libero. In tincidunt dolor at metus lacinia semper eu quis
+          enim. Class aptent taciti sociosqu ad litora torquent per conubia
+          nostra, per inceptos himenaeos.
+        </p>
+        <h2>O que eles querem</h2>
+        <p>
+          <button class="botao-expandir-retrair" type="button">+</button>
+          Cras velit mauris, suscipit ac blandit sit amet, scelerisque eget
+          sem. Aenean purus leo, tincidunt consectetur libero id, euismod
+          ultrices diam. Nam erat purus, faucibus ut nisl in, facilisis
+          venenatis mauris. Praesent maximus vulputate euismod. Fusce
+          eget lacinia nisi. Aenean eu ornare leo. Maecenas risus justo,
+          ornare ac orci quis, ultrices tincidunt tortor. Nunc sodales
+          magna non lorem bibendum sollicitudin. In porta, velit cursus
+          consectetur finibus, diam magna porta lorem, posuere ullamcorper
+          eros nulla auctor nibh. Ut fermentum diam magna, eu luctus libero
+          mattis vitae. Sed laoreet lorem vel orci dictum, eu sodales nisi
+          scelerisque. Maecenas vestibulum dapibus fermentum. Donec auctor
+          mauris nulla, eget sagittis sem molestie nec.
+        </p>
+        <h2>Para onde eles vão</h2>
+        <p>
+          <button class="botao-expandir-retrair" type="button">+</button>
+          Vestibulum auctor orci lacus, sit amet pretium mauris viverra
+          nec. Nullam eu maximus augue. Phasellus in metus sit amet sem dapibus
+          iaculis ut at odio. Cras turpis dui, lacinia non posuere quis,
+          posuere id mi. Etiam nisi erat, aliquet at libero at, porta pretium
+          ligula. Duis faucibus massa id metus venenatis posuere ac vitae
+          nulla. Praesent quis dui non metus hendrerit pretium. Nunc sit amet
+          purus dapibus, consequat augue a, pulvinar mi. Morbi fermentum
+          egestas dignissim. Suspendisse vulputate nibh sem, a aliquet
+          lorem porta ac.
+        </p>
+        <h2>O que comem</h2>
+        <p>
+          <button class="botao-expandir-retrair" type="button">+</button>
+          Quisquam veritatis dicta eligendi fuga asperiores tenetur, laborum 
+          repudiandae consequatur dignissimos corporis excepturi minus voluptas
+          consequuntur et dolorem odio optio ab error. Soluta vitae eaque,
+          blanditiis at autem dolore odio, aspernatur animi quibusdam nesciunt
+          debitis necessitatibus quod eius minus eos laborum asperiores culpa
+          obcaecati. Facilis excepturi obcaecati alias nisi maiores adipisci
+          rem, aliquid voluptatem dolor blanditiis quibusdam itaque neque
+          numquam et velit illum fuga magnam eius, dicta ut omnis.
+          Iure dolore accusamus natus necessitatibus?
+        </p>
+        <h2>Sexta-feira, no Globo Repórter</h2>
+        <p>
+          <button class="botao-expandir-retrair" type="button">+</button>
+          Pariatur neque rerum fuga similique? Recusandae suscipit esse ex
+          eos corrupti, alias deserunt dignissimos cum laudantium dolorum
+          quo ut enim libero nam? Harum, illo! Ipsa fuga non sit placeat
+          sed, laudantium voluptatem nobis ratione laboriosam odio, magni
+          vel quibusdam dicta dolorem obcaecati temporibus. Explicabo, et quo?
+          Explicabo omnis amet sit debitis velit?
+        </p>
+      </article>
+    </main>
+    
+    <!-- katex: biblioteca para usar Latex para fórmulas matemáticas -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+    <!-- navegacao: código que faz a "navegação em abas" da página -->
+    <script src="navegacao.js"></script>
+    <script src="exercicio1.js"></script>
+    <script src="exercicio2.js"></script>
+    <script src="exercicio3.js"></script>
+    <!-- inclua os arquivos dos exercícios aqui: -->
 
-    <script>
-      // faz o vídeo desaparecer de leve assim que terminar
-      const TEMPO = 11000;  // 11s, duração do vídeo
-      setTimeout(() => {
-        // faz o vídeo desaparecer colocando a classe .desaparecido
-        document.querySelector('.backdrop').classList.add('desaparecido');
-        // faz o conteúdo principal surgir, retirando a classe .desaparecido
-        document.querySelector('#conteudo-principal').classList.remove('desaparecido');
-      }, TEMPO);
 
 
-      // no clique do botão #unmute, tira o atributo muted to video
-      document.querySelector('#unmute').addEventListener('click', e => {
-        document.querySelector('.backdrop video').muted = false;
-        e.currentTarget.classList.add('desaparecido');
-      });
-    </script>
   </body>
 </html>
